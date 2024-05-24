@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'rubik';
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.profile-animation {
+  animation: image 6s infinite;
+}
+
+@keyframes image {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
+
+.custom-shadow:focus {
+  box-shadow: 0 0 0 2px rgb(72, 114, 206);
+}
+
+@font-face {
+  font-family: 'rubik';
+  src: url('../src/assets/Rubik/static/Rubik-Regular.ttf');
+}
+@font-face {
+  font-family: 'poppins';
+  src: url('../src/assets/Poppins/Poppins-Medium.ttf');
+}
