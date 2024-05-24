@@ -14,7 +14,7 @@ export default function AboutSection() {
             <br />
             <br />
             Saya memiliki ketertarikan untuk di bidang Fullstack Developer dan Front-End Website, yang berkaitan dengan
-            Javascript dan laravel. Saya cepat belajar dan otodidak. Untuk Fullstack sendiri saya menggunakan framework laravel dan untuk Front-End saya menggunakan
+            Javascript dan Laravel. Saya cepat belajar dan otodidak. Untuk Fullstack sendiri saya menggunakan framework laravel dan untuk Front-End saya menggunakan
             framework ReactJS.
           </p>
         </div>
