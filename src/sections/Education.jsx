@@ -24,18 +24,18 @@ export default function EducationSection() {
       title: 'Freelance FullStack Developer',
       date: '2023 - Sekarang',
       description:
-        'Membuat Aplikasi Rekam Medis menggunakan framework laravel dan MySql sebagai database, Membuat database Relation One to Many.',
+        'Creating a Medical Record Application using the laravel framework and MySql as a database, Create design system database, Implement database in code.',
     },
     {
       title: 'FullStack Porgrammer | Ghani Artha Farma',
       date: '2021 - 2022',
-      description: 'Membuat Aplikasi Manajemen invoice dari distributor menggunakan framework .Net dan SQL Server sebagai database',
+      description: 'Create an invoice management application from distributors using .Net framework and SQL Server as a database.',
     },
   ]
 
   return (
-    <Section id='edukasi'>
-      <HeaderSection title='Pengalaman & Edukasi' description='Perjalanan saya' />
+    <Section id='experience'>
+      <HeaderSection title='Experience & Education' description='My Journey' />
       <div>
         <ul className='flex gap-4 md:gap-6 justify-center font-semibold text-black'>
           <li
@@ -46,7 +46,7 @@ export default function EducationSection() {
                 : 'dark:bg-zinc-900 hover:bg-blue-200 dark:hover:bg-zinc-950'
             } px-4 py-2 bg-blue-100 dark:text-white cursor-pointer rounded-md`}
           >
-            Pengalaman
+            Experience
           </li>
           <li
             onClick={() => setTab(2)}
@@ -56,7 +56,7 @@ export default function EducationSection() {
                 : ' dark:bg-zinc-900 hover:bg-blue-200 dark:hover:bg-zinc-950'
             } px-4 py-2 bg-blue-100 dark:text-white cursor-pointer rounded-md`}
           >
-            Edukasi
+            Education
           </li>
         </ul>
         <div className='pt-10'>

@@ -17,8 +17,7 @@ import vscode from '../../src/assets/skills/vscode.svg'
 import postman from '../../src/assets/skills/postman.png'
 import npm from '../../src/assets/skills/npm.svg'
 import ts from '../../src/assets/skills/typescript.svg'
-import electron from '../../src/assets/skills/electron.svg'
-import socket from '../../src/assets/skills/socket.svg'
+import sass from '../../src/assets/skills/sass.svg'
 import mysql from '../../src/assets/skills/mysql.png'
 import php from '../../src/assets/skills/php.svg'
 import laravel from '../../src/assets/skills/laravel.svg'
@@ -68,24 +67,16 @@ export default function SkillSection() {
         img: node,
       },
       {
-        name: 'Socket.IO',
-        img: socket,
-      },
-      {
-        name: 'React Native',
-        img: react,
-      },
-      {
-        name: 'Electron.JS',
-        img: electron,
-      },
-      {
         name: 'Express.JS',
         img: express,
       },
       {
         name: 'Laravel',
         img: laravel,
+      },
+      {
+        name: 'Sass',
+        img: sass,
       },
     ],
     [
@@ -130,11 +121,11 @@ export default function SkillSection() {
     ],
   ]
   const [languageList, framework, databases, tools] = skills
-  const tabs = ['Bahasa', 'Kerangka/Pusataka', 'Database', 'Alat']
+  const tabs = ['Language', 'Framework', 'Database', 'Tools']
 
   return (
-    <Section id='kemampuan'>
-      <HeaderSection title='kemampuan' description='Semua kemampuan saya sejauh ini' />
+    <Section id='skill'>
+      <HeaderSection title='Skill' description='' />
       <div className='overflow-hidden overflow-x-scroll'>
         <ul className='flex text-center w-[38rem] sm:w-auto'>
           {tabs.map((item, i) => {

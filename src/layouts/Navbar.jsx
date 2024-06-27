@@ -31,7 +31,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', scrollHandle)
   }, [])
 
-  const navbarList = ['beranda', 'tentang', 'edukasi', 'kemampuan', 'karya', 'kontak']
+  const navbarList = ['home', 'about', 'experience', 'skill', 'project', 'contact']
 
   return (
     <nav>

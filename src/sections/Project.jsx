@@ -1,111 +1,125 @@
 import HeaderSection from '../components/HeaderSection'
 import Section from '../components/Section'
 
-import blogImg from '../assets/demo/blog.webp'
-import shiganimeImg from '../assets/demo/shiganime.webp'
-import zeitplanImg from '../assets/demo/zeitplan.webp'
-import portofolio1Img from '../assets/demo/portofolio.webp'
-import portofolio2Img from '../assets/demo/portofolio.v2.webp'
-import walagraf from '../assets/demo/walagraf.webp'
+import meet from '../assets/demo/meet.png'
+import taskia from '../assets/demo/taskia.png'
+import klinik from '../assets/demo/klinik.png'
+import nomads from '../assets/demo/nomads.png'
+
+
 
 import tailwind from '../assets/skills/tailwind.svg'
-import react from '../assets/skills/react.svg'
-import node from '../assets/skills/nodejs.png'
-import express from '../assets/skills/express.svg'
-import mongo from '../assets/skills/mongo.svg'
-import socket from '../assets/skills/socket.svg'
-import typescript from '../assets/skills/typescript.svg'
+import css from '../assets/skills/css.svg'
+import javascript from '../assets/skills/js.svg'
+import laravel from '../assets/skills/laravel.svg'
+import php from '../assets/skills/php.svg'
+import sass from '../assets/skills/sass.svg'
+import mysql from '../assets/skills/mysql.png'
+import html from '../assets/skills/html.svg'
 
 export default function ProjectSection() {
   const projects = [
     {
-      name: 'Walagraf',
+      name: 'Nomads Travel Web',
       description:
-        '[DALAM PENGEMBANGAN] Whatsapp + Telegram clone multi akun sinkron dengan official akun',
-      img: walagraf,
-      linkDemo: 'https://github.com/radityaseptian/walagraf',
-      linkRepo: 'https://github.com/radityaseptian/walagraf',
+        'Nomads Web Travel adalah Sebuah website yang difokuskan pada bidang pariwisata. Produk dari Website ini merupakan destinasi perjalanan wisata.',
+      img: nomads,
+      linkDemo: 'https://github.com/Rasyid1609/nomads',
+      linkRepo: 'https://github.com/Rasyid1609/nomads',
       stack: [
         {
-          name: 'React.JS',
-          icon: react,
+          name: 'Laravel',
+          icon: laravel,
         },
         {
-          name: 'Typescript',
-          icon: typescript,
+          name: 'PHP',
+          icon: php,
         },
         {
-          name: 'Tailwind.CSS',
-          icon: tailwind,
+          name: 'HTML',
+          icon: html,
         },
         {
-          name: 'Node.JS',
-          icon: node,
+          name: 'SASS',
+          icon: sass,
         },
         {
-          name: 'Express.JS',
-          icon: express,
-        },
-        {
-          name: 'Socket.IO',
-          icon: socket,
-        },
-        {
-          name: 'MongoDB',
-          icon: mongo,
+          name: 'MySql',
+          icon: mysql,
         },
       ],
     },
     {
-      name: 'Blog Pribadi',
-      description: 'Website blog pribadi untuk menulis dan membagikan topik seputar teknologi',
-      img: blogImg,
-      linkDemo: 'https://radwritter.vercel.app/',
-      linkRepo: 'https://github.com/radityaseptian/blog',
+      name: 'Doctor Appointment Web',
+      description: 'Website ini adalah website yang dimana pasien dapat memesan telebih dahulu jika ingin berobat sehingga pasien tidak perlu menunggu lama saat ingin diperiksa. ',
+      img: meet,
+      linkDemo: 'https://github.com/Rasyid1609/doctorAppointment',
+      linkRepo: 'https://github.com/Rasyid1609/doctorAppointment',
       stack: [
         {
-          name: 'React.JS',
-          icon: react,
+          name: 'Laravel',
+          icon: laravel,
         },
         {
           name: 'Tailwind.CSS',
           icon: tailwind,
         },
         {
-          name: 'Node.JS',
-          icon: node,
+          name: 'PHP',
+          icon: php,
         },
         {
-          name: 'Express.JS',
-          icon: express,
+          name: 'HTML',
+          icon: html,
         },
         {
-          name: 'MongoDB',
-          icon: mongo,
+          name: 'MySql',
+          icon: mysql,
         },
       ],
     },
     {
-      name: 'Portofolio Website V2',
-      description: 'Website untuk memperkenalkan diri saya',
-      img: portofolio2Img,
-      linkDemo: 'https://radityaseptian.my.id/',
-      linkRepo: 'https://github.com/radityaseptian/portofolio.v2',
+      name: 'Web Klinik',
+      description: 'Website ini merupakan sebuah website yang digunakan sebagai rekam medis',
+      img: klinik,
+      linkDemo: 'https://github.com/Rasyid1609/web-klinik',
+      linkRepo: 'https://github.com/Rasyid1609/web-klinik',
       stack: [
         {
-          name: 'React.JS',
-          icon: react,
+          name: 'Laravel',
+          icon: laravel,
         },
         {
-          name: 'Tailwind.CSS',
-          icon: tailwind,
+          name: 'PHP',
+          icon: php,
+        },
+      ],
+    },
+    {
+      name: 'Task Management',
+      description: 'Website ini merupakan sebuah website yang digunakan untuk membuat Task',
+      img: taskia,
+      linkDemo: 'https://github.com/Rasyid1609/taskia',
+      linkRepo: 'https://github.com/Rasyid1609/taskia',
+      stack: [
+        {
+          name: 'Javascript',
+          icon: javascript,
+        },
+        {
+          name: 'HTML',
+          icon: html,
+        },
+        {
+          name: 'CSS',
+          icon: css,
         },
       ],
     },
   ]
 
   return (
-    <Section id='karya'>
+    <Section id='project'>
       <HeaderSection title='Karya' description='Karya yang pernah saya buat' />
       <ul className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         {projects.map(({ name, description, img, linkDemo, linkRepo, stack }) => {

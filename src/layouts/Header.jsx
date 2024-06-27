@@ -7,7 +7,7 @@ import { FiGithub, FiFacebook, FiLinkedin } from 'react-icons/fi'
 
 export default function Header() {
   return (
-    <header id='beranda' className='min-h-screen flex items-center'>
+    <header id='home' className='min-h-screen flex items-center'>
       <Navbar />
       <Container>
         <div className='relative mb-14 mt-4 md:m-0'>
@@ -30,13 +30,13 @@ export default function Header() {
                   Faishal Ammar Rasyiq
                 </h1>
                 <TypeAnimation
-                  sequence={['Website Developer', 2000, 'Software Enthusiast', 2000, 'MERN Stack', 2000]}
+                  sequence={['Website Developer', 2000, 'Software Enthusiast', 2000, 'Fullstack Developer', 2000, 'Frontend Developer', 2000]}
                   wrapper='div'
                   className='text-2xl font-poppins font-bold py-3 text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-green-400'
                   speed={200}
                   repeat={Infinity}
                 />
-                <p className='pb-2'>Halo semuanya 👋🏼, selamat datang di situs portofolio saya.</p>
+                <p className='pb-2'>Hello there!! 👋🏼, Welcome to my portfolio website.</p>
                 <div className='flex gap-2 flex-wrap py-2'>
                   <button>
                     <a

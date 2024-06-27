@@ -45,8 +45,8 @@ export default function ContactSection() {
   }
 
   return (
-    <Section id='kontak'>
-      <HeaderSection title='Kontak' description='Kirim pesan kepada saya' />
+    <Section id='contact'>
+      <HeaderSection title='Contact' description='Send me a message.' />
       <div className='flex gap-8 flex-col-reverse md:flex-row'>
         <div className='space-y-2 md:space-y-4'>
           <ContactSosmed
