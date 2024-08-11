@@ -1,18 +1,4 @@
 <h1 align="center">Personal Portfolio Website</h1>
-<!--
-<div align="center">
-  <a href="https://www.radityaseptian.my.id/">
-    <img src="./src/assets/demo/portofolio.v2.webp" alt="Logo">
-  </a>
--->
-<!--
-  <p align="center">
-    Personal portfolio website for introduce your self
-    <br />
-    <a href="https://www.radityaseptian.my.id/"><strong>View Demo »</strong></a>
-    <br />
-</div>
--->
 
 ### Built With
 
