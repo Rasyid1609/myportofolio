@@ -120,7 +120,7 @@ export default function ProjectSection() {
 
   return (
     <Section id='project'>
-      <HeaderSection title='Project' />
+      <HeaderSection title='Projects' />
       <ul className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         {projects.map(({ name, description, img, linkDemo, linkRepo, stack }) => {
           return (
