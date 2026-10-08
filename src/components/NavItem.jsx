@@ -1,9 +1,9 @@
 export default function NavItem(props) {
-  const { name, className } = props
+  const { name, className, ...itemProps } = props
   const target = `#${name}`
   return (
-    <li {...props}>
-      <a href={target} className={`${className} capitalize`}>
+    <li {...itemProps}>
+      <a href={target} className={`${className} block capitalize`}>
         {name}
       </a>
     </li>

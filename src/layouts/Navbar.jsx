@@ -1,86 +1,66 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Container from '../components/Container'
 import NavItem from '../components/NavItem'
 import MobileNavModal from '../components/MobileNavModal'
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
 
 export default function Navbar() {
   const [theme, setTheme] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [target, setTarget] = useState('#home')
-
   const html = document.documentElement
-  const navbar = useRef(null)
 
   useEffect(() => {
-    if (theme) {
-      html.classList.add('dark')
-    } else {
-      html.classList.remove('dark')
-    }
-  }, [theme])
-
-  useEffect(() => {
-    const scrollHandle = () => {
-      if (html.scrollTop > 1) {
-        navbar.current.style.boxShadow = '0 1px 2px rgba(0,0,0,.2)'
-      } else {
-        navbar.current.style.boxShadow = '0 0 0 rgb(0,0,0,0)'
-      }
-    }
-    window.addEventListener('scroll', scrollHandle)
-    return () => window.removeEventListener('scroll', scrollHandle)
-  }, [])
+    html.classList.toggle('dark', theme)
+  }, [html, theme])
 
   const navbarList = ['home', 'about', 'experience', 'skill', 'project', 'contact']
 
   return (
-    <nav>
-      <div
-        ref={navbar}
-        className='fixed z-50 bottom-0 md:bottom-auto md:top-0 right-0 left-0 border-t border-slate-200/70 bg-white/90 text-slate-900 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#090d18]/90 dark:text-white md:border-t-0'
-      >
+    <nav aria-label='Main navigation'>
+      <div className='navbar-glass fixed left-1/2 top-auto bottom-4 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2 rounded-full border border-white/70 bg-white/70 text-slate-800 shadow-[0_12px_40px_rgba(15,23,42,.14)] backdrop-blur-2xl transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/85 dark:text-slate-100 dark:shadow-[0_12px_40px_rgba(0,0,0,.4)] md:bottom-auto md:top-5'>
         <Container>
-          <div className='flex justify-between flex-row-reverse md:flex-row py-3 md:py-4 lg:py-5'>
-            <ul className='hidden md:flex items-center gap-7 font-rubik font-semibold'>
+          <div className='grid min-h-[3.75rem] grid-cols-[1fr_auto_1fr] items-center gap-3 py-2 sm:px-2'>
+            <button
+              type='button'
+              aria-label={showModal ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={showModal}
+              onClick={() => setShowModal((open) => !open)}
+              className='grid h-11 w-11 place-items-center rounded-full border border-slate-200/70 bg-white/55 text-xl transition hover:bg-white/90 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 md:hidden'
+            >
+              {showModal ? <FiX aria-hidden='true' /> : <FiMenu aria-hidden='true' />}
+            </button>
+            <span className='md:hidden' aria-hidden='true' />
+
+            <ul className='navbar-glass-list hidden items-center gap-1 rounded-full bg-slate-900/[.045] p-1 font-rubik text-sm font-semibold dark:bg-white/[.06] md:flex'>
               {navbarList.map((name) => {
                 const hash = `#${name}`
                 return (
                   <NavItem
                     onClick={() => setTarget(hash)}
-                    className={
-                      target === hash
-                        ? 'text-black dark:text-white'
-                        : 'text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white'
-                    }
+                    data-active={target === hash ? 'true' : 'false'}
+                    className={`rounded-full px-3 py-2 transition-colors ${target === hash ? 'bg-white text-slate-900 shadow-sm dark:bg-white/15 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'}`}
                     key={name}
                     name={name}
                   />
                 )
               })}
             </ul>
+
             <button
-              onClick={() => setShowModal(!showModal)}
-              className='md:hidden text-3xl font-semibold cursor-pointer bg-slate-100 border hover:bg-slate-200 dark:hover:bg-zinc-950 dark:border-zinc-600 dark:bg-[#141417] box-content py-[.1rem] px-[.4rem] rounded'
+              type='button'
+              aria-label={theme ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={theme ? 'Switch to light mode' : 'Switch to dark mode'}
+              onClick={() => setTheme((current) => !current)}
+              className='col-start-3 ml-auto grid h-11 w-11 place-items-center rounded-full border border-slate-200/70 bg-white/65 text-lg text-amber-500 shadow-sm transition duration-300 hover:scale-105 hover:bg-white dark:border-white/10 dark:bg-white/[.06] dark:text-sky-300 dark:hover:bg-white/10'
             >
-              <span>☰</span>
+              {theme ? <FiSun aria-hidden='true' /> : <FiMoon aria-hidden='true' />}
             </button>
-            {showModal && <MobileNavModal names={navbarList} onNavigate={() => setShowModal(false)} />}
-            <div className='flex items-center flex-row-reverse md:flex-row gap-2 md:gap-4'>
-              <button aria-label={theme ? 'Switch to light mode' : 'Switch to dark mode'} onClick={() => setTheme(!theme)}>
-                <span
-                  className={`p-2.5 lg:p-2 border rounded-md ${
-                    theme
-                      ? 'bg-[#141417] hover:bg-zinc-950 border-zinc-600'
-                      : 'bg-slate-100 hover:bg-slate-200'
-                  }`}
-                >
-                  {!theme ? '🌞' : '🌚'}
-                </span>
-              </button>
-            </div>
           </div>
         </Container>
       </div>
+
+      {showModal && <MobileNavModal names={navbarList} onNavigate={() => setShowModal(false)} />}
     </nav>
   )
 }
