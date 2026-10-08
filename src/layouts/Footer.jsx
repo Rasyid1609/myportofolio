@@ -1,78 +1,32 @@
 import Container from '../components/Container'
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { profile } from '../data/portfolio'
 
-// import { FaFacebookF, FaLinkedinIn, FaGithub } from 'react-icons/fa'
-import { FiGithub, FiFacebook, FiLinkedin } from 'react-icons/fi'
+const footerLinks = [
+  ['Home', 'home'],
+  ['About', 'about'],
+  ['Experience', 'experience'],
+  ['Skills', 'skill'],
+  ['Projects', 'project'],
+  ['Contact', 'contact'],
+]
 
 export default function Footer() {
-  const footer = [
-    'beranda',
-    '/',
-    'tentang',
-    '/',
-    'kemampuan',
-    '/',
-    'edukasi',
-    '/',
-    'karya',
-    '/',
-    'kontak',
-    
-  ]
-
   return (
-    <footer className='rounded-t-xl md:rounded-t-3xl bg-white dark:bg-[#1d1d1d] pb-24 md:pb-12 pt-10'>
+    <footer className='border-t border-slate-200 bg-white py-10 pb-28 dark:border-white/10 dark:bg-[#0b1020] md:pb-10'>
       <Container>
-        <div className='flex flex-col items-center'>
-          <h4 className='text-xl md:text-2xl font-bold'>Faishal Ammar Rasyiq</h4>
-          <ul className='flex flex-wrap gap-4 md:gap-6 py-4 capitalize'>
-            {footer.map((item, i) => {
-              switch (item) {
-                case '/':
-                  return (
-                    <li className='text-blue-500' key={i}>
-                      {item}
-                    </li>
-                  )
-                case 'blog':
-                  return (
-                    <li key={i}>
-                      <a
-                        href='#'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  )
-                default:
-                  return (
-                    <li key={i}>
-                      <a href={`#${item}`}>{item}</a>
-                    </li>
-                  )
-              }
-            })}
+        <div className='flex flex-col items-center text-center'>
+          <a href='#home' className='text-xl font-bold tracking-tight text-slate-900 dark:text-white'>{profile.name}</a>
+          <p className='mt-2 text-sm text-slate-500 dark:text-slate-400'>Full Stack Web Developer � Jakarta, Indonesia</p>
+          <ul className='mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2'>
+            {footerLinks.map(([label, id]) => <li key={id}><a className='text-sm font-medium text-slate-600 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-300' href={`#${id}`}>{label}</a></li>)}
           </ul>
-          <div className='flex gap-4 md:gap-6 pt-3 text-white'>
-            <a href='http://github.com/Rasyid1609' target='_blank' rel='noopener noreferrer'>
-              <FiGithub className='w-6 h-6 md:h-5 md:w-5 box-content p-2 rounded-md bg-black' />
-            </a>
-            <a
-              href='https://www.facebook.com/faishal.rasyiq/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <FiFacebook className='w-6 h-6 md:h-5 md:w-5 box-content p-2 rounded-md bg-[#3b5998]' />
-            </a>
-            <a
-              href='https://www.linkedin.com/in/faishal-ammar-rasyiq/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <FiLinkedin className='w-6 h-6 md:h-5 md:w-5 box-content p-2 rounded-md bg-[#0e76a8]' />
-            </a>
+          <div className='mt-6 flex gap-3'>
+            <a aria-label='GitHub' href={profile.github} target='_blank' rel='noreferrer' className='social-link'><FiGithub /></a>
+            <a aria-label='LinkedIn' href={profile.linkedin} target='_blank' rel='noreferrer' className='social-link'><FiLinkedin /></a>
+            <a aria-label='Email' href={`mailto:${profile.email}`} className='social-link'><FiMail /></a>
           </div>
+          <p className='mt-7 text-xs text-slate-400'>� {new Date().getFullYear()} {profile.name}</p>
         </div>
       </Container>
     </footer>

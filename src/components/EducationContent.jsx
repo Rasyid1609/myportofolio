@@ -1,36 +1,21 @@
 export default function EducationContent({ data = [] }) {
   return (
-    <>
-      {data.map((item, i) => {
-        if (i % 2 == 0) {
-          return (
-            <div key={item.title} className='flex gap-3 md:gap-5 text-right'>
-              <div className='flex-1 pb-6'>
-                <h3 className='font-bold'>{item.title}</h3>
-                <div className='pb-2 pt-3'>{item.date}</div>
-                <p className='md:pl-28 text-zinc-800 dark:text-slate-100'>{item.description}</p>
+    <ol className='relative ml-2 border-l border-blue-200 dark:border-blue-400/30'>
+      {data.map((item) => (
+        <li key={`${item.company}-${item.title}`} className='relative pb-8 pl-7 last:pb-0'>
+          <span className='absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-[3px] border-white bg-blue-600 shadow-sm dark:border-slate-900' />
+          <div className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/[.035] sm:p-6'>
+            <div className='flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between'>
+              <div>
+                <h3 className='text-lg font-bold text-slate-900 dark:text-white'>{item.title}</h3>
+                <p className='mt-1 font-medium text-blue-700 dark:text-blue-300'>{item.company}</p>
               </div>
-              <div className='w-[1.4px] bg-black dark:bg-white relative'>
-                <span className='w-4 h-4 absolute -left-2 bg-black dark:bg-white rounded-full'></span>
-              </div>
-              <div className='flex-1'></div>
+              <span className='shrink-0 rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 dark:bg-blue-400/10 dark:text-blue-300'>{item.date}</span>
             </div>
-          )
-        }
-        return (
-          <div key={item.title} className='flex gap-3 md:gap-5'>
-            <div className='flex-1'></div>
-            <div className='w-[1.4px] bg-black dark:bg-white relative'>
-              <span className='w-4 h-4 absolute -left-2 bg-black dark:bg-white rounded-full'></span>
-            </div>
-            <div className='flex-1 pb-6'>
-              <h3 className='font-bold'>{item.title}</h3>
-              <div className='pb-2 pt-3'>{item.date}</div>
-              <p className='md:pr-28 text-zinc-800 dark:text-slate-100'>{item.description}</p>
-            </div>
+            <p className='mt-4 leading-7 text-slate-600 dark:text-slate-300'>{item.description}</p>
           </div>
-        )
-      })}
-    </>
+        </li>
+      ))}
+    </ol>
   )
 }

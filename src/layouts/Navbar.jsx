@@ -37,7 +37,7 @@ export default function Navbar() {
     <nav>
       <div
         ref={navbar}
-        className='fixed z-50 bottom-0 md:bottom-auto md:top-0 right-0 left-0 dark:text-white bg-white dark:bg-[#1d1d1d]'
+        className='fixed z-50 bottom-0 md:bottom-auto md:top-0 right-0 left-0 border-t border-slate-200/70 bg-white/90 text-slate-900 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-[#090d18]/90 dark:text-white md:border-t-0'
       >
         <Container>
           <div className='flex justify-between flex-row-reverse md:flex-row py-3 md:py-4 lg:py-5'>
@@ -64,9 +64,9 @@ export default function Navbar() {
             >
               <span>☰</span>
             </button>
-            {showModal && <MobileNavModal names={navbarList} />}
+            {showModal && <MobileNavModal names={navbarList} onNavigate={() => setShowModal(false)} />}
             <div className='flex items-center flex-row-reverse md:flex-row gap-2 md:gap-4'>
-              <button onClick={() => setTheme(!theme)}>
+              <button aria-label={theme ? 'Switch to light mode' : 'Switch to dark mode'} onClick={() => setTheme(!theme)}>
                 <span
                   className={`p-2.5 lg:p-2 border rounded-md ${
                     theme

@@ -4,7 +4,8 @@ import ContactSosmed from '../components/ContactSosmed'
 import Input from '../components/Input'
 
 import { AiOutlineMail } from 'react-icons/ai'
-import { FiLinkedin } from 'react-icons/fi'
+import { FiLinkedin, FiPhone } from 'react-icons/fi'
+import { profile } from '../data/portfolio'
 
 import { useState } from 'react'
 
@@ -52,14 +53,20 @@ export default function ContactSection() {
           <ContactSosmed
             icon={AiOutlineMail}
             name='Email'
-            username='rasyid.mahardian@gmail.com'
-            href='mailto:rasyid.mahardian@gmail.com'
+            username={profile.email}
+            href={`mailto:${profile.email}`}
           />
           <ContactSosmed
             icon={FiLinkedin}
             name='Linkedin'
             username='linkedin.com/in/faishal-ammar-rasyiq'
-            href='https://www.linkedin.com/in/faishal-ammar-rasyiq/'
+            href={profile.linkedin}
+          />
+          <ContactSosmed
+            icon={FiPhone}
+            name='Phone / WhatsApp'
+            username={profile.phone}
+            href={`tel:${profile.phone}`}
           />
         </div>
         <form onSubmit={sendMessage} className='flex-1 space-y-8'>

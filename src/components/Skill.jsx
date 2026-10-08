@@ -1,25 +1,12 @@
 export default function Skill({ list = [] }) {
   return (
-    <ul className='flex gap-4 py-4 flex-wrap text-center'>
-      {list.map((item) => {
-        return (
-          <li
-            key={item.name}
-            title={item.name}
-            className='p-4 w-32 h-32 md:w-40 md:h-40 bg-slate-100 hover:bg-slate-200 dark:bg-[#242424] dark:hover:bg-zinc-900 dark:border-zinc-700 rounded-lg border-2'
-          >
-            <img
-              loading='lazy'
-              src={item.img}
-              alt={item.name}
-              className={`${
-                item.name === 'Next.JS' && 'dark:bg-white rounded-full'
-              } w-16 h-16 md:w-24 md:h-24 mb-2 mx-auto`}
-            />
-            <span className='font-bold'>{item.name}</span>
-          </li>
-        )
-      })}
+    <ul className='grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+      {list.map((item) => (
+        <li key={item} className='skill-chip flex min-h-16 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 dark:border-white/10 dark:bg-white/[.035] dark:text-slate-200'>
+          <span className='h-2.5 w-2.5 shrink-0 rounded-full bg-gradient-to-br from-blue-500 to-emerald-400' />
+          {item}
+        </li>
+      ))}
     </ul>
   )
 }
